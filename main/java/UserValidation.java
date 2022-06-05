@@ -60,12 +60,28 @@ public class UserValidation {
         else
             System.out.println("Mobile number is invalid");
     }
+    public void password() {
+        Scanner scanner = new Scanner(System.in);
+        String PasswordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&])[a-zA-Z0-9]{8,}$";
+        System.out.println("Enter Password");
+        String passWord = scanner.next();
+        Pattern pattern = Pattern.compile(PasswordPattern);
+        Matcher matcher = pattern.matcher(passWord);
+        Boolean result = matcher.matches();
+
+        if (result == true)
+            System.out.println("Password is valid");
+        else
+            System.out.println("Password is invalid");
+    }
+
 
     public static void main(String[] args) {
     UserValidation userValidation=new UserValidation();
     //userValidation.firstName();
     //userValidation.lastName();
     //userValidation.email();
-        userValidation.mobileNumber();
+        //userValidation.mobileNumber();
+        userValidation.password();
     }
 }
