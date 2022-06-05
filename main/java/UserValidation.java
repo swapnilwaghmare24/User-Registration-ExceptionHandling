@@ -32,10 +32,25 @@ public class UserValidation {
         else
             System.out.println("Last Name is Invalid");
     }
+    public void email() {
+        String emailPattern = "[a-z]+[.]?[a-z]*@[a-z]+.[a-z]+[.a-z]*";
+        System.out.println("Enter your Email:");
+        Scanner scanner = new Scanner(System.in);
+        String email = scanner.next();
+        Pattern pattern = Pattern.compile(emailPattern);
+        Matcher matcher = pattern.matcher(email);
+        boolean result = matcher.matches();
+
+        if (result == true)
+            System.out.println("Email is Valid");
+        else
+            System.out.println("Email is not valid");
+    }
 
     public static void main(String[] args) {
     UserValidation userValidation=new UserValidation();
-    userValidation.firstName();
-    userValidation.lastName();
+    //userValidation.firstName();
+    //userValidation.lastName();
+    userValidation.email();
     }
 }
